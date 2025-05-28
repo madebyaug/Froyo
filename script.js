@@ -4,34 +4,24 @@
 // 2. Is the HTML file connected to a JS file?
 // Yes.
 
-// 3.
+// 3. Can you prompt the user for froyo flavors and store their input? Yes.
+// 4. Can you parse the user input into an array of froyo flavors? Yes.
+// 5. Can you build an object to track which flavors you have counted so far? Yes.
+
 // This stores the flavors in an array
-const UIfroyoFlavors = [];
-//  This function creates the prompt question
-function froyoPrompt() {
-  const froyoQuestion = prompt("Enter Froyo Flavors Here");
-  // const froyoFlavors = UIfroyoFlavors.split(",").forEach((flavor) => {});
-  // I found split but we didn't go over this in class to perhaps there‘s another way.
-
-  // Push Question's data into an array "froyoFlavors"
-  froyoFlavors.push(froyoQuestion);
+const userFroyoFlavors = [];
+//  This function creates the prompt and split the data via comma
+function froyoQuestion() {
+  const froyoPrompt = prompt("Enter Froyo Flavors Here");
+  return froyoPrompt.split(",");
 }
+// This stores the split arry and removes the space via trim
+const splitFroyoArry = froyoQuestion();
+const mapFroyoArry = splitFroyoArry.map((flavor) => flavor.trim());
 
-froyoPrompt();
-console.log(`Your flavor(s) are: ${froyoFlavors}`);
-
-// 5.
-// create a container for "FlavorTotal"
-//  create a "FlavorLenght" ForLoop to count each flavor
-//  Add "FlavorLenght" to "FlavorTotal"
-const froyoObjects = froyoFlavors.map((flavor, inx) => {
-  return { Index: inx, Flavors: flavor };
-});
-
-console.table(froyoObjects);
-
-// 5. Can you build an object to track which flavors you have counted so far?
-// TBD
+// This push this the trim arry to a container and returns the listed flavors
+userFroyoFlavors.push(...mapFroyoArry);
+console.log(userFroyoFlavors);
 
 // 6. How should that object be updated as you iterate through the array of flavors?
 // TBD
